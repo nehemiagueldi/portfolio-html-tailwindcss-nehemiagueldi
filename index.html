@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="dist/img/Hexagon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="dist/output.css" />
+    <script>
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+    <title>Portfolio Tailwind CSS</title>
+  </head>
+  <body class="">
+    <!-- HEADER TOP START -->
+    <header class="fixed top-0 left-0 z-[9999] flex w-full items-center bg-transparent">
+      <div class="container">
+        <div class="relative flex items-center justify-between">
+          <div class="px-4">
+            <a href="/" class="block py-6 text-lg font-bold text-primary">nehemiagueldi</a>
+          </div>
+          <div class="flex items-center px-4">
+            <nav id="nav-menu" class="fixed right-4 top-full hidden w-full rounded-lg bg-white py-5 shadow-lg dark:bg-dark dark:shadow-slate-500 lg:md:static lg:md:block lg:md:max-w-full lg:md:rounded-none lg:md:bg-transparent lg:md:shadow-none lg:w-full dark:lg:bg-transparent">
+              <ul class="flex items-center justify-center">
+                <li class="group">
+                  <a href="#home" class="mx-8 flex py-2 text-base font-semibold text-dark transition duration-200 ease-in-out visited:text-primary group-hover:text-primary dark:text-white dark:visited:text-primary"> Home </a>
+                </li>
+                <li class="group">
+                  <a href="/project.html" class="mx-8 flex py-2 text-base font-semibold text-dark transition duration-200 ease-in-out group-hover:text-primary dark:text-white">Project</a>
+                </li>
+                <!-- <li class="group">
+                  <a href="#clients" class="mx-8 flex py-2 text-base font-semibold text-dark transition duration-200 ease-in-out group-hover:text-primary dark:text-white">Clients</a>
+                </li> -->
+                <li class="group">
+                  <a href="/articles.html" class="mx-8 flex py-2 text-base font-semibold text-dark transition duration-200 ease-in-out group-hover:text-primary dark:text-white">Articles</a>
+                </li>
+                <li class="group">
+                  <a href="/about.html" class="mx-8 flex py-2 text-base font-semibold text-dark transition duration-200 ease-in-out group-hover:text-primary dark:text-white">About Me</a>
+                </li>
+                <!-- <li class="group">
+                  <a href="#contact" class="mx-8 flex py-2 text-base font-semibold text-dark transition duration-200 ease-in-out group-hover:text-primary dark:text-white">Contact</a>
+                </li> -->
+              </ul>
+            </nav>
+            <li class="flex items-center pl-4 sm:pr-5 lg:pr-10">
+              <div class="flex">
+                <!-- <span class="mr-2 text-sm font-semibold text-slate-500">Light</span> -->
+                <input type="checkbox" class="hidden" id="dark-toggle" />
+                <label for="dark-toggle">
+                  <div class="flex h-9 w-14 cursor-pointer items-center rounded-full bg-slate-500 p-1">
+                    <div class="toggle-circle flex h-7 w-7 items-center justify-center rounded-full bg-white transition duration-300 ease-in-out">
+                      <svg role="img" class="dark:hidden" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="color-scheme-light">
+                        <path
+                          d="M12 18c-3.309 0-6-2.691-6-6s2.691-6 6-6 6 2.691 6 6-2.691 6-6 6zm0-10c-2.206 0-4 1.794-4 4s1.794 4 4 4 4-1.794 4-4-1.794-4-4-4zm0-4a1 1 0 0 1-1-1V1a1 1 0 0 1 2 0v2a1 1 0 0 1-1 1zm0 20a1 1 0 0 1-1-1v-2a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1zM5.64 6.64a.997.997 0 0 1-.707-.293l-1.42-1.42a.999.999 0 1 1 1.414-1.414l1.42 1.42A.999.999 0 0 1 5.64 6.64zm14.139 14.139a.997.997 0 0 1-.707-.293l-1.42-1.42a.999.999 0 1 1 1.414-1.414l1.42 1.42a.999.999 0 0 1-.707 1.707zM3 13H1a1 1 0 1 1 0-2h2a1 1 0 0 1 0 2zm20 0h-2a1 1 0 1 1 0-2h2a1 1 0 1 1 0 2zM4.22 20.779a.999.999 0 0 1-.707-1.707l1.42-1.42a.999.999 0 1 1 1.414 1.414l-1.42 1.42a.993.993 0 0 1-.707.293zM18.359 6.64a.999.999 0 0 1-.707-1.707l1.42-1.42a.999.999 0 1 1 1.414 1.414l-1.42 1.42a.997.997 0 0 1-.707.293z"></path>
+                      </svg>
+                      <svg role="img" class="hidden dark:block" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="color-scheme-dark">
+                        <path
+                          d="M12.048 21.963c-.308 0-.618-.015-.93-.043-2.66-.246-5.064-1.513-6.771-3.567s-2.512-4.651-2.266-7.311a10.004 10.004 0 0 1 9.038-9.038 1 1 0 0 1 .896 1.589 6.008 6.008 0 0 0 1.258 8.392c2.078 1.536 5.055 1.536 7.133 0a1 1 0 0 1 1.591.896 9.951 9.951 0 0 1-9.949 9.082zM9.315 4.438a8.006 8.006 0 0 0-5.244 6.787 7.954 7.954 0 0 0 1.813 5.849 7.95 7.95 0 0 0 5.417 2.854 7.95 7.95 0 0 0 8.266-5.243 8.01 8.01 0 0 1-2.729.476 7.946 7.946 0 0 1-4.755-1.565C9.174 11.443 8.145 7.68 9.315 4.438z"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </label>
+                <!-- <span class="ml-2 text-sm font-semibold text-slate-500">Dark</span> -->
+              </div>
+            </li>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- HEADER TOP END -->
+
+    <!-- NAVBAR BOTTOM START -->
+    <!-- <section id="bottom-navigation" class="md:hidden block fixed inset-x-0 bottom-0 z-10 bg-white shadow"> // if shown only tablet/mobile-->
+    <section id="bottom-navigation" class="fixed inset-x-0 bottom-0 z-[9999] block bg-white bg-opacity-70 shadow-lg dark:bg-dark dark:bg-opacity-90 lg:md:hidden">
+      <div id="tabs" class="flex justify-between">
+        <a href="/" class="inline-block w-full justify-center pt-2 pb-1 text-center text-base font-bold text-dark transition duration-200 ease-in-out visited:text-primary hover:text-primary dark:text-white dark:visited:text-primary dark:hover:text-primary">
+          <?xml version="1.0" ?><!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+          <svg width="25" height="25" class="mb-1 inline-block fill-current" id="Layer_1" style="enable-background: new 0 0 24 24" version="1.1" viewBox="0 0 16 16" width="16px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <path d="M15.45,7L14,5.551V2c0-0.55-0.45-1-1-1h-1c-0.55,0-1,0.45-1,1v0.553L9,0.555C8.727,0.297,8.477,0,8,0S7.273,0.297,7,0.555  L0.55,7C0.238,7.325,0,7.562,0,8c0,0.563,0.432,1,1,1h1v6c0,0.55,0.45,1,1,1h3v-5c0-0.55,0.45-1,1-1h2c0.55,0,1,0.45,1,1v5h3  c0.55,0,1-0.45,1-1V9h1c0.568,0,1-0.437,1-1C16,7.562,15.762,7.325,15.45,7z" />
+          </svg>
+          <span class="tab tab-home block text-xs">Home</span>
+        </a>
+        <a href="/project.html" class="inline-block w-full justify-center pt-2 pb-1 text-center text-base font-bold text-dark transition duration-200 ease-in-out hover:text-primary dark:text-white dark:hover:text-primary">
+          <?xml version="1.0" ?><svg width="25" height="25" class="mb-1 inline-block fill-current" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M384 121.941V128H256V0h6.059c6.365 0 12.47 2.529 16.971 7.029l97.941 97.941A24.005 24.005 0 0 1 384 121.941zM248 160c-13.2 0-24-10.8-24-24V0H24C10.745 0 0 10.745 0 24v464c0 13.255 10.745 24 24 24h336c13.255 0 24-10.745 24-24V160H248zM123.206 400.505a5.4 5.4 0 0 1-7.633.246l-64.866-60.812a5.4 5.4 0 0 1 0-7.879l64.866-60.812a5.4 5.4 0 0 1 7.633.246l19.579 20.885a5.4 5.4 0 0 1-.372 7.747L101.65 336l40.763 35.874a5.4 5.4 0 0 1 .372 7.747l-19.579 20.884zm51.295 50.479l-27.453-7.97a5.402 5.402 0 0 1-3.681-6.692l61.44-211.626a5.402 5.402 0 0 1 6.692-3.681l27.452 7.97a5.4 5.4 0 0 1 3.68 6.692l-61.44 211.626a5.397 5.397 0 0 1-6.69 3.681zm160.792-111.045l-64.866 60.812a5.4 5.4 0 0 1-7.633-.246l-19.58-20.885a5.4 5.4 0 0 1 .372-7.747L284.35 336l-40.763-35.874a5.4 5.4 0 0 1-.372-7.747l19.58-20.885a5.4 5.4 0 0 1 7.633-.246l64.866 60.812a5.4 5.4 0 0 1-.001 7.879z" />
+          </svg>
+          <span class="tab tab-explore block text-xs">Project</span>
+        </a>
+        <a href="/articles.html" class="inline-block w-full justify-center pt-2 pb-1 text-center text-base font-bold text-dark transition duration-200 ease-in-out hover:text-primary dark:text-white dark:hover:text-primary">
+          <?xml version="1.0" ?><svg width="25" height="25" class="mb-1 inline-block fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <g id="Glyph"><path d="M9,21.62l.33-2.57a5,5,0,0,1,1.43-2.9l5.68-5.69A5,5,0,0,1,19,9.13V6a5,5,0,0,0-5-5H6A5,5,0,0,0,1,6V18a5,5,0,0,0,5,5H9.18A2.94,2.94,0,0,1,9,21.62ZM5,7h8a1,1,0,0,1,0,2H5A1,1,0,0,1,5,7Zm0,4h6a1,1,0,0,1,0,2H5a1,1,0,0,1,0-2Zm2,6H5a1,1,0,0,1,0-2H7a1,1,0,0,1,0,2Zm15.12-.88-5.69,5.69a2.93,2.93,0,0,1-1.74.85L12.13,23H12a1,1,0,0,1-1-1.13l.33-2.56a2.93,2.93,0,0,1,.85-1.74l5.69-5.69a3.08,3.08,0,0,1,4.24,0A3,3,0,0,1,22.12,16.12Z" /></g>
+          </svg>
+          <span class="tab tab-whishlist block text-xs">Articles</span>
+        </a>
+        <a href="/about.html" class="inline-block w-full justify-center pt-2 pb-1 text-center text-base font-bold text-dark transition duration-200 ease-in-out hover:text-primary dark:text-white dark:hover:text-primary">
+          <?xml version="1.0" ?><svg style="enable-background: new 0 0 24 24" version="1.1" width="25" height="25" class="mb-1 inline-block fill-current" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g id="info" />
+            <g id="icons">
+              <g id="user">
+                <ellipse cx="12" cy="8" rx="5" ry="6" />
+                <path d="M21.8,19.1c-0.9-1.8-2.6-3.3-4.8-4.2c-0.6-0.2-1.3-0.2-1.8,0.1c-1,0.6-2,0.9-3.2,0.9s-2.2-0.3-3.2-0.9    C8.3,14.8,7.6,14.7,7,15c-2.2,0.9-3.9,2.4-4.8,4.2C1.5,20.5,2.6,22,4.1,22h15.8C21.4,22,22.5,20.5,21.8,19.1z" />
+              </g>
+            </g>
+          </svg>
+          <span class="tab tab-kategori block text-xs">About Me</span>
+        </a>
+      </div>
+    </section>
+    <!-- NAVBAR BOTTOM START -->
+
+    <!-- HERO SECTION START -->
+    <section id="home" class="pt-36 dark:bg-dark">
+      <div class="container">
+        <div class="flex flex-wrap">
+          <div class="w-full self-center px-4 lg:w-1/2">
+            <h1 class="text-base font-semibold text-primary md:text-xl">
+              Hello There 👋, I'm
+              <span class="mt-1 block text-4xl font-bold text-dark dark:text-white lg:text-5xl">Nehemia Gueldi</span>
+            </h1>
+            <h2 class="mb-5 text-lg font-medium text-secondary lg:text-2xl">Informatics Student</h2>
+            <p class="mb-10 font-medium leading-relaxed text-secondary">Learn web programming it's easy and fun right? <span class="font-bold text-dark dark:text-white">Nope.</span></p>
+
+            <a href="#" class="rounded-full bg-primary py-4 px-8 text-base font-semibold text-white transition duration-300 ease-in-out hover:opacity-80 hover:shadow-lg">Hubungi Saya</a>
+
+            <p class="mb-2 mt-7 max-w-xl text-lg font-bold text-secondary lg:text-2xl">Favorite Tech Stack</p>
+            <div class="flex items-center">
+              <!-- REACT -->
+              <a href="https://react.dev/" target="_blank" class="mr-2 flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-secondary transition duration-200 ease-in-out hover:border-primary hover:bg-primary hover:text-white">
+                <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <title>React</title>
+                  <path
+                    d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z" />
+                </svg>
+              </a>
+
+              <!-- TAILWIND CSS -->
+              <a href="https://tailwindcss.com/" target="_blank" class="mr-2 flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-secondary transition duration-200 ease-in-out hover:border-primary hover:bg-primary hover:text-white">
+                <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <title>Tailwind CSS</title>
+                  <path
+                    d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z" />
+                </svg>
+              </a>
+
+              <!-- LARAVEL -->
+              <a href="https://laravel.com/" target="_blank" class="mr-2 flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-secondary transition duration-200 ease-in-out hover:border-primary hover:bg-primary hover:text-white">
+                <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <title>Laravel</title>
+                  <path
+                    d="M23.642 5.43a.364.364 0 01.014.1v5.149c0 .135-.073.26-.189.326l-4.323 2.49v4.934a.378.378 0 01-.188.326L9.93 23.949a.316.316 0 01-.066.027c-.008.002-.016.008-.024.01a.348.348 0 01-.192 0c-.011-.002-.02-.008-.03-.012-.02-.008-.042-.014-.062-.025L.533 18.755a.376.376 0 01-.189-.326V2.974c0-.033.005-.066.014-.098.003-.012.01-.02.014-.032a.369.369 0 01.023-.058c.004-.013.015-.022.023-.033l.033-.045c.012-.01.025-.018.037-.027.014-.012.027-.024.041-.034H.53L5.043.05a.375.375 0 01.375 0L9.93 2.647h.002c.015.01.027.021.04.033l.038.027c.013.014.02.03.033.045.008.011.02.021.025.033.01.02.017.038.024.058.003.011.01.021.013.032.01.031.014.064.014.098v9.652l3.76-2.164V5.527c0-.033.004-.066.013-.098.003-.01.01-.02.013-.032a.487.487 0 01.024-.059c.007-.012.018-.02.025-.033.012-.015.021-.03.033-.043.012-.012.025-.02.037-.028.014-.01.026-.023.041-.032h.001l4.513-2.598a.375.375 0 01.375 0l4.513 2.598c.016.01.027.021.042.031.012.01.025.018.036.028.013.014.022.03.034.044.008.012.019.021.024.033.011.02.018.04.024.06.006.01.012.021.015.032zm-.74 5.032V6.179l-1.578.908-2.182 1.256v4.283zm-4.51 7.75v-4.287l-2.147 1.225-6.126 3.498v4.325zM1.093 3.624v14.588l8.273 4.761v-4.325l-4.322-2.445-.002-.003H5.04c-.014-.01-.025-.021-.04-.031-.011-.01-.024-.018-.035-.027l-.001-.002c-.013-.012-.021-.025-.031-.04-.01-.011-.021-.022-.028-.036h-.002c-.008-.014-.013-.031-.02-.047-.006-.016-.014-.027-.018-.043a.49.49 0 01-.008-.057c-.002-.014-.006-.027-.006-.041V5.789l-2.18-1.257zM5.23.81L1.47 2.974l3.76 2.164 3.758-2.164zm1.956 13.505l2.182-1.256V3.624l-1.58.91-2.182 1.255v9.435zm11.581-10.95l-3.76 2.163 3.76 2.163 3.759-2.164zm-.376 4.978L16.21 7.087 14.63 6.18v4.283l2.182 1.256 1.58.908zm-8.65 9.654l5.514-3.148 2.756-1.572-3.757-2.163-4.323 2.489-3.941 2.27z" />
+                </svg>
+              </a>
+
+              <!-- NODE JS -->
+              <a href="https://nodejs.org/en/docs" target="_blank" class="mr-2 flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-secondary transition duration-200 ease-in-out hover:border-primary hover:bg-primary hover:text-white">
+                <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <title>Node.js</title>
+                  <path
+                    d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.57,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M19.099,13.993 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,1.482,0.806,3.248,4.655,3.248C17.501,17.007,19.099,15.91,19.099,13.993z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="w-full self-end px-4 lg:w-1/2">
+            <div class="relative mt-10 lg:mt-0 lg:mr-0">
+              <img src="dist/img/3d_home.png" alt="Nehemia Gueldi" class="relative z-10 mx-auto max-w-full" />
+              <!-- <span class="absolute -bottom-0 left-1/2 -translate-x-1/2">
+                <svg width="380" height="380" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                  <path fill="#14b8a6" d="M43.6,-48.7C54.7,-32.6,60.6,-16.3,62.4,1.7C64.1,19.8,61.7,39.5,50.6,51.9C39.5,64.2,19.8,69.2,2.2,67C-15.4,64.8,-30.8,55.5,-46.8,43.1C-62.9,30.8,-79.6,15.4,-80.8,-1.2C-82,-17.7,-67.6,-35.5,-51.6,-51.6C-35.5,-67.7,-17.7,-82.2,-0.7,-81.5C16.3,-80.8,32.6,-64.8,43.6,-48.7Z" transform="translate(100 100) scale(1.2)" />
+                </svg>
+              </span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- HERO SECTION END -->
+
+    <!-- PORTFOLIO SECTION START -->
+    <section id="portfolio" class="bg-slate-100 pt-36 pb-16 dark:bg-slate-800">
+      <div class="container">
+        <div class="w-full px-4">
+          <div class="mx-auto mb-16 max-w-xl text-center">
+            <h4 class="mb-2 text-lg font-semibold text-primary">Portfolio</h4>
+            <h2 class="mb-4 text-3xl font-bold text-dark dark:text-white sm:text-4xl lg:text-5xl">Recent Projects</h2>
+            <p class="text-md font-medium text-secondary md:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum maiores sed ullam neque, pariatur veniam ex adipisci quisquam provident ipsa.</p>
+          </div>
+        </div>
+        <div class="flex w-full flex-wrap justify-center px-4 xl:mx-auto xl:w-10/12">
+          <div class="mb-12 p-4 md:w-1/2">
+            <div class="overflow-hidden rounded-md shadow-md">
+              <img src="dist/img/portfolio/happywork.png" alt="Happy Work" width="w-full" />
+            </div>
+            <h3 class="mt-5 mb-3 text-xl font-semibold text-dark dark:text-white">Happy Work</h3>
+            <p class="mb-5 text-base font-medium text-secondary">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores architecto qui saepe!</p>
+            <div class="flex">
+              <a href="https://nehemiagueldi.github.io/HappyWork/" target="_blank" class="mr-2 flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 text-secondary transition duration-200 ease-in-out hover:border-primary hover:bg-primary hover:text-white">
+                <?xml version="1.0" ?><svg fill="none" height="24" viewBox="0 0 24 24" width="24" class="fill-current" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M6.25 4.5C5.2835 4.5 4.5 5.2835 4.5 6.25V12H9.25C10.7688 12 12 13.2312 12 14.75V19.5H17.75C18.7165 19.5 19.5 18.7165 19.5 17.75V13.75C19.5 13.3358 19.8358 13 20.25 13C20.6642 13 21 13.3358 21 13.75V17.75C21 19.5449 19.5449 21 17.75 21L6.75 21.0002L6.71603 21H6.25C4.45507 21 3 19.5449 3 17.75V6.25C3 4.45507 4.45507 3 6.25 3H10.25C10.6642 3 11 3.33579 11 3.75C11 4.16421 10.6642 4.5 10.25 4.5H6.25ZM13 3.75C13 3.33579 13.3358 3 13.75 3H20.2505C20.6647 3 21.0005 3.33579 21.0005 3.75V10.25C21.0005 10.6642 20.6647 11 20.2505 11C19.8362 11 19.5005 10.6642 19.5005 10.25V5.56074L14.2803 10.7804C13.9874 11.0732 13.5125 11.0732 13.2196 10.7803C12.9268 10.4874 12.9268 10.0125 13.2197 9.71964L18.4399 4.5H13.75C13.3358 4.5 13 4.16421 13 3.75Z" />
+                </svg>
+              </a>
+              <a href="https://github.com/nehemiagueldi" target="_blank" class="mr-2 flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 text-secondary transition duration-200 ease-in-out hover:border-primary hover:bg-primary hover:text-white">
+                <svg role="img" width="24" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <title>GitHub</title>
+                  <path
+                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="mb-12 p-4 md:w-1/2">
+            <div class="overflow-hidden rounded-md shadow-md">
+              <img src="dist/img/portfolio/kotabogor.jpg" alt="Kota Bogor" width="w-full" />
+            </div>
+            <h3 class="mt-5 mb-3 text-xl font-semibold text-dark dark:text-white">Kota Bogor</h3>
+            <p class="mb-5 text-base font-medium text-secondary">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores architecto qui saepe!</p>
+            <div class="flex">
+              <a href="https://nehemiagueldi.github.io/Kota-Bogor/" target="_blank" class="mr-2 flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 text-secondary transition duration-200 ease-in-out hover:border-primary hover:bg-primary hover:text-white">
+                <?xml version="1.0" ?><svg fill="none" height="24" viewBox="0 0 24 24" width="24" class="fill-current" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M6.25 4.5C5.2835 4.5 4.5 5.2835 4.5 6.25V12H9.25C10.7688 12 12 13.2312 12 14.75V19.5H17.75C18.7165 19.5 19.5 18.7165 19.5 17.75V13.75C19.5 13.3358 19.8358 13 20.25 13C20.6642 13 21 13.3358 21 13.75V17.75C21 19.5449 19.5449 21 17.75 21L6.75 21.0002L6.71603 21H6.25C4.45507 21 3 19.5449 3 17.75V6.25C3 4.45507 4.45507 3 6.25 3H10.25C10.6642 3 11 3.33579 11 3.75C11 4.16421 10.6642 4.5 10.25 4.5H6.25ZM13 3.75C13 3.33579 13.3358 3 13.75 3H20.2505C20.6647 3 21.0005 3.33579 21.0005 3.75V10.25C21.0005 10.6642 20.6647 11 20.2505 11C19.8362 11 19.5005 10.6642 19.5005 10.25V5.56074L14.2803 10.7804C13.9874 11.0732 13.5125 11.0732 13.2196 10.7803C12.9268 10.4874 12.9268 10.0125 13.2197 9.71964L18.4399 4.5H13.75C13.3358 4.5 13 4.16421 13 3.75Z" />
+                </svg>
+              </a>
+              <a href="https://github.com/nehemiagueldi" target="_blank" class="mr-2 flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 text-secondary transition duration-200 ease-in-out hover:border-primary hover:bg-primary hover:text-white">
+                <svg role="img" width="24" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <title>GitHub</title>
+                  <path
+                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="mb-12 p-4 md:w-1/2">
+            <div class="overflow-hidden rounded-md shadow-md">
+              <img src="dist/img/portfolio/gercepnet.png" alt="Gercep Net" width="w-full" />
+            </div>
+            <h3 class="mt-5 mb-3 text-xl font-semibold text-dark dark:text-white">Gercep Net</h3>
+            <p class="mb-5 text-base font-medium text-secondary">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores architecto qui saepe!</p>
+            <div class="flex">
+              <a href="https://gercepnetz.000webhostapp.com/" target="_blank" class="mr-2 flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 text-secondary transition duration-200 ease-in-out hover:border-primary hover:bg-primary hover:text-white">
+                <?xml version="1.0" ?><svg fill="none" height="24" viewBox="0 0 24 24" width="24" class="fill-current" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M6.25 4.5C5.2835 4.5 4.5 5.2835 4.5 6.25V12H9.25C10.7688 12 12 13.2312 12 14.75V19.5H17.75C18.7165 19.5 19.5 18.7165 19.5 17.75V13.75C19.5 13.3358 19.8358 13 20.25 13C20.6642 13 21 13.3358 21 13.75V17.75C21 19.5449 19.5449 21 17.75 21L6.75 21.0002L6.71603 21H6.25C4.45507 21 3 19.5449 3 17.75V6.25C3 4.45507 4.45507 3 6.25 3H10.25C10.6642 3 11 3.33579 11 3.75C11 4.16421 10.6642 4.5 10.25 4.5H6.25ZM13 3.75C13 3.33579 13.3358 3 13.75 3H20.2505C20.6647 3 21.0005 3.33579 21.0005 3.75V10.25C21.0005 10.6642 20.6647 11 20.2505 11C19.8362 11 19.5005 10.6642 19.5005 10.25V5.56074L14.2803 10.7804C13.9874 11.0732 13.5125 11.0732 13.2196 10.7803C12.9268 10.4874 12.9268 10.0125 13.2197 9.71964L18.4399 4.5H13.75C13.3358 4.5 13 4.16421 13 3.75Z" />
+                </svg>
+              </a>
+              <a href="https://github.com/nehemiagueldi" target="_blank" class="mr-2 flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 text-secondary transition duration-200 ease-in-out hover:border-primary hover:bg-primary hover:text-white">
+                <svg role="img" width="24" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <title>GitHub</title>
+                  <path
+                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="mb-12 p-4 md:w-1/2">
+            <div class="overflow-hidden rounded-md shadow-md">
+              <img src="dist/img/portfolio/dico4.png" alt="Dico4" width="w-full" />
+            </div>
+            <h3 class="mt-5 mb-3 text-xl font-semibold text-dark dark:text-white">Dico4</h3>
+            <p class="mb-5 text-base font-medium text-secondary">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores architecto qui saepe!</p>
+            <div class="flex">
+              <a href="https://dico-4.000webhostapp.com/" target="_blank" class="mr-2 flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 text-secondary transition duration-200 ease-in-out hover:border-primary hover:bg-primary hover:text-white">
+                <?xml version="1.0" ?><svg fill="none" height="24" viewBox="0 0 24 24" width="24" class="fill-current" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M6.25 4.5C5.2835 4.5 4.5 5.2835 4.5 6.25V12H9.25C10.7688 12 12 13.2312 12 14.75V19.5H17.75C18.7165 19.5 19.5 18.7165 19.5 17.75V13.75C19.5 13.3358 19.8358 13 20.25 13C20.6642 13 21 13.3358 21 13.75V17.75C21 19.5449 19.5449 21 17.75 21L6.75 21.0002L6.71603 21H6.25C4.45507 21 3 19.5449 3 17.75V6.25C3 4.45507 4.45507 3 6.25 3H10.25C10.6642 3 11 3.33579 11 3.75C11 4.16421 10.6642 4.5 10.25 4.5H6.25ZM13 3.75C13 3.33579 13.3358 3 13.75 3H20.2505C20.6647 3 21.0005 3.33579 21.0005 3.75V10.25C21.0005 10.6642 20.6647 11 20.2505 11C19.8362 11 19.5005 10.6642 19.5005 10.25V5.56074L14.2803 10.7804C13.9874 11.0732 13.5125 11.0732 13.2196 10.7803C12.9268 10.4874 12.9268 10.0125 13.2197 9.71964L18.4399 4.5H13.75C13.3358 4.5 13 4.16421 13 3.75Z" />
+                </svg>
+              </a>
+              <a href="https://github.com/nehemiagueldi" target="_blank" class="mr-2 flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 text-secondary transition duration-200 ease-in-out hover:border-primary hover:bg-primary hover:text-white">
+                <svg role="img" width="24" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <title>GitHub</title>
+                  <path
+                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- PORTFOLIO SECTION END -->
+
+    <!-- CLIENTS SECTION START -->
+    <section id="clients" class="bg-slate-800 pt-36 pb-32 dark:bg-slate-300">
+      <div class="container">
+        <div class="w-full px-4">
+          <div class="mx-auto mb-16 text-center">
+            <h4 class="mb-2 text-lg font-semibold text-primary">Clients</h4>
+            <h2 class="mb-4 text-3xl font-bold text-white dark:text-dark sm:text-4xl lg:text-5xl">Who have worked together</h2>
+            <p class="text-md font-medium text-secondary md:text-lg">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga placeat inventore veritatis?</p>
+          </div>
+        </div>
+        <div class="w-full px-4">
+          <div class="flex flex-wrap items-center justify-center">
+            <a href="#" class="mx-4 max-w-[120px] py-4 opacity-60 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 lg:mx-6 xl:mx-8">
+              <img src="dist/img/clients/Google.png" alt="Google" />
+            </a>
+            <a href="#" class="mx-4 max-w-[120px] py-4 opacity-60 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 lg:mx-6 xl:mx-8">
+              <img src="dist/img/clients/Gojek.png" alt="Gojek" />
+            </a>
+            <a href="#" class="mx-4 max-w-[120px] py-4 opacity-60 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 lg:mx-6 xl:mx-8">
+              <img src="dist/img/clients/Tokopedia.png" alt="Tokopedia" />
+            </a>
+            <a href="#" class="mx-4 max-w-[120px] py-4 opacity-60 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 lg:mx-6 xl:mx-8">
+              <img src="dist/img/clients/traveloka.png" alt="Traveloka" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- CLIENTS SECTION END -->
+
+    <!-- BLOG SECTION START -->
+    <section id="article" class="bg-slate-100 pt-36 pb-32 dark:bg-dark">
+      <div class="container">
+        <div class="w-full px-4">
+          <div class="mx-auto mb-16 max-w-xl text-center">
+            <h4 class="mb-2 text-lg font-semibold text-primary">Article</h4>
+            <h2 class="mb-4 text-3xl font-bold text-dark dark:text-white sm:text-4xl lg:text-5xl">Recent posts</h2>
+            <p class="text-md font-medium text-secondary md:text-lg">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore quae ducimus aperiam eius.</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap">
+          <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
+            <div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg dark:bg-slate-800">
+              <img src="https://source.unsplash.com/360x200?programming" alt="Programming" class="w-full" />
+              <div class="py-8 px-6">
+                <h3>
+                  <a href="#" class="mb-3 block truncate text-xl font-semibold text-dark transition duration-300 ease-in-out hover:text-primary dark:text-white dark:hover:text-primary">Learn Programming Tips</a>
+                </h3>
+                <p class="mb-6 text-base font-medium text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui, provident!</p>
+                <a href="#" class="rounded-lg bg-primary py-2 px-4 text-sm font-medium text-white transition duration-300 ease-in-out hover:opacity-80">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
+            <div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg dark:bg-slate-800">
+              <img src="https://source.unsplash.com/360x200?lifestyle" alt="Lifestyle" class="w-full" />
+              <div class="py-8 px-6">
+                <h3>
+                  <a href="#" class="mb-3 block truncate text-xl font-semibold text-dark transition duration-300 ease-in-out hover:text-primary dark:text-white dark:hover:text-primary">Lifestyle</a>
+                </h3>
+                <p class="mb-6 text-base font-medium text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui, provident!</p>
+                <a href="#" class="rounded-lg bg-primary py-2 px-4 text-sm font-medium text-white transition duration-300 ease-in-out hover:opacity-80">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
+            <div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg dark:bg-slate-800">
+              <img src="https://source.unsplash.com/360x200?coffee" alt="Coffee" class="w-full" />
+              <div class="py-8 px-6">
+                <h3>
+                  <a href="#" class="mb-3 block truncate text-xl font-semibold text-dark transition duration-300 ease-in-out hover:text-primary dark:text-white dark:hover:text-primary">Enjoying a Cup of Coffee</a>
+                </h3>
+                <p class="mb-6 text-base font-medium text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui, provident!</p>
+                <a href="#" class="rounded-lg bg-primary py-2 px-4 text-sm font-medium text-white transition duration-300 ease-in-out hover:opacity-80">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-full items-center justify-center px-4 text-center">
+          <div class="mb-10 overflow-hidden rounded-xl">
+            <div class="py-8 px-6">
+              <h3>
+                <a href="/articles.html" class="block truncate text-xl font-semibold text-dark transition duration-300 ease-in-out hover:text-primary dark:text-white dark:hover:text-primary">Read Another Article</a>
+              </h3>
+              <!-- <p class="mb-6 text-base font-medium text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui, provident!</p> -->
+              <!-- <a href="#" class="rounded-lg bg-primary py-2 px-4 text-sm font-medium text-white transition duration-300 ease-in-out hover:opacity-80">Read More</a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- BLOG SECTION END -->
+
+    <!-- CONTACT SECTION START -->
+    <section id="contact" class="pt-36 pb-32 dark:bg-slate-800">
+      <div class="container">
+        <div class="w-full px-4">
+          <div class="mx-auto mb-16 max-w-xl text-center">
+            <h4 class="mb-2 text-lg font-semibold text-primary">Contact</h4>
+            <h2 class="mb-4 text-3xl font-bold text-dark dark:text-white sm:text-4xl lg:text-5xl">Get In Touch</h2>
+            <p class="text-md font-medium text-secondary md:text-lg">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore quae ducimus aperiam eius.</p>
+          </div>
+        </div>
+        <form>
+          <div class="w-full lg:mx-auto lg:w-2/3">
+            <div class="mb-8 w-full px-4">
+              <label for="name" class="text-base font-bold text-primary">Name</label>
+              <input type="text" id="name" class="w-full rounded-md bg-slate-200 p-3 text-dark transition duration-200 ease-in-out focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" />
+            </div>
+            <div class="mb-8 w-full px-4">
+              <label for="email" class="text-base font-bold text-primary">Email</label>
+              <input type="text" id="email" class="w-full rounded-md bg-slate-200 p-3 text-dark transition duration-200 ease-in-out focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" />
+            </div>
+            <div class="mb-8 w-full px-4">
+              <label for="message" class="text-base font-bold text-primary">Message</label>
+              <textarea type="text" id="message" class="h-32 w-full rounded-md bg-slate-200 p-3 text-dark transition duration-200 ease-in-out focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"></textarea>
+            </div>
+            <div class="w-full px-4">
+              <button class="w-full rounded-full bg-primary py-3 px-8 text-base font-semibold text-white transition duration-300 hover:opacity-80 hover:shadow-lg">Send</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- CONTACT SECTION END -->
+
+    <!-- FOOTER SECTION START -->
+    <footer class="bg-dark pt-24 pb-12">
+      <div class="container">
+        <div class="flex flex-wrap">
+          <div class="mb-12 w-full px-4 md:w-1/3"></div>
+          <div class="mb-12 w-full px-4 md:w-1/3"></div>
+          <div class="mb-12 w-full px-4 md:w-1/3"></div>
+        </div>
+        <div class="w-full border-t border-slate-700 pt-10">
+          <!-- SOCIAL MEDIA START-->
+
+          <!-- SOCIAL MEDIA END-->
+          <p class="text-center text-sm font-medium text-slate-500">
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            | Made with <span class="text-red-600">❤️</span> by <a href="#" target="_blank" class="font-bold text-primary">Nehemia Gueldi</a>, use <a href="https://tailwindcss.com/" target="_blank" class="font-bold text-sky-500">Tailwind CSS</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!-- FOOTER SECTION END -->
+
+    <!-- BACK TO TOP START -->
+    <a href="#home" class="fixed right-4 bottom-24 z-[9999] hidden h-11 w-11 items-center justify-center rounded-full bg-primary p-4 hover:animate-pulse lg:md:h-14 lg:md:w-14 lg:md:bottom-4" id="to-top">
+      <span class="mt-1 block h-3 w-3 rotate-45 border-t-4 border-l-4 lg:md:mt-2 lg:md:h-5 lg:md:w-5"></span>
+    </a>
+    <!-- BACK TO TOP END -->
+
+    <!-- SCRIPTS START -->
+    <script src="dist/js/script.js"></script>
+    <!-- SCRIPTS END -->
+  </body>
+</html>

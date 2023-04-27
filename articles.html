@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="dist/img/Hexagon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="dist/output.css" />
+    <script>
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+    <title>Portfolio Tailwind CSS</title>
+  </head>
+  <body class="">
+    <!-- HEADER TOP START -->
+    <header class="fixed top-0 left-0 z-[9999] flex w-full items-center bg-transparent">
+      <div class="container">
+        <div class="relative flex items-center justify-between">
+          <div class="px-4">
+            <a href="/" class="block py-6 text-lg font-bold text-primary">nehemiagueldi</a>
+          </div>
+          <div class="flex items-center px-4">
+            <nav id="nav-menu" class="fixed right-4 top-full hidden w-full rounded-lg bg-white py-5 shadow-lg dark:bg-dark dark:shadow-slate-500 lg:md:static lg:md:block lg:md:max-w-full lg:md:rounded-none lg:md:bg-transparent lg:md:shadow-none lg:w-full dark:lg:bg-transparent">
+              <ul class="flex items-center justify-center">
+                <li class="group">
+                  <a href="/" class="mx-8 flex py-2 text-base font-semibold text-dark transition duration-200 ease-in-out group-hover:text-primary dark:text-white"> Home </a>
+                </li>
+                <li class="group">
+                  <a href="/project.html" class="mx-8 flex py-2 text-base font-semibold text-dark transition duration-200 ease-in-out group-hover:text-primary dark:text-white">Project</a>
+                </li>
+                <!-- <li class="group">
+                  <a href="#clients" class="mx-8 flex py-2 text-base font-semibold text-dark transition duration-200 ease-in-out group-hover:text-primary dark:text-white">Clients</a>
+                </li> -->
+                <li class="group">
+                  <a href="/articles.html" class="mx-8 flex py-2 text-base font-semibold text-dark transition duration-200 ease-in-out visited:text-primary group-hover:text-primary dark:text-white dark:visited:text-primary">Articles</a>
+                </li>
+                <li class="group">
+                  <a href="/about.html" class="mx-8 flex py-2 text-base font-semibold text-dark transition duration-200 ease-in-out group-hover:text-primary dark:text-white">About Me</a>
+                </li>
+                <!-- <li class="group">
+                  <a href="#contact" class="mx-8 flex py-2 text-base font-semibold text-dark transition duration-200 ease-in-out group-hover:text-primary dark:text-white">Contact</a>
+                </li> -->
+              </ul>
+            </nav>
+            <li class="flex items-center pl-4 sm:pr-5 lg:pr-10">
+              <div class="flex">
+                <!-- <span class="mr-2 text-sm font-semibold text-slate-500">Light</span> -->
+                <input type="checkbox" class="hidden" id="dark-toggle" />
+                <label for="dark-toggle">
+                  <div class="flex h-9 w-14 cursor-pointer items-center rounded-full bg-slate-500 p-1">
+                    <div class="toggle-circle flex h-7 w-7 items-center justify-center rounded-full bg-white transition duration-300 ease-in-out">
+                      <svg role="img" class="dark:hidden" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="color-scheme-light">
+                        <path
+                          d="M12 18c-3.309 0-6-2.691-6-6s2.691-6 6-6 6 2.691 6 6-2.691 6-6 6zm0-10c-2.206 0-4 1.794-4 4s1.794 4 4 4 4-1.794 4-4-1.794-4-4-4zm0-4a1 1 0 0 1-1-1V1a1 1 0 0 1 2 0v2a1 1 0 0 1-1 1zm0 20a1 1 0 0 1-1-1v-2a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1zM5.64 6.64a.997.997 0 0 1-.707-.293l-1.42-1.42a.999.999 0 1 1 1.414-1.414l1.42 1.42A.999.999 0 0 1 5.64 6.64zm14.139 14.139a.997.997 0 0 1-.707-.293l-1.42-1.42a.999.999 0 1 1 1.414-1.414l1.42 1.42a.999.999 0 0 1-.707 1.707zM3 13H1a1 1 0 1 1 0-2h2a1 1 0 0 1 0 2zm20 0h-2a1 1 0 1 1 0-2h2a1 1 0 1 1 0 2zM4.22 20.779a.999.999 0 0 1-.707-1.707l1.42-1.42a.999.999 0 1 1 1.414 1.414l-1.42 1.42a.993.993 0 0 1-.707.293zM18.359 6.64a.999.999 0 0 1-.707-1.707l1.42-1.42a.999.999 0 1 1 1.414 1.414l-1.42 1.42a.997.997 0 0 1-.707.293z"></path>
+                      </svg>
+                      <svg role="img" class="hidden dark:block" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="color-scheme-dark">
+                        <path
+                          d="M12.048 21.963c-.308 0-.618-.015-.93-.043-2.66-.246-5.064-1.513-6.771-3.567s-2.512-4.651-2.266-7.311a10.004 10.004 0 0 1 9.038-9.038 1 1 0 0 1 .896 1.589 6.008 6.008 0 0 0 1.258 8.392c2.078 1.536 5.055 1.536 7.133 0a1 1 0 0 1 1.591.896 9.951 9.951 0 0 1-9.949 9.082zM9.315 4.438a8.006 8.006 0 0 0-5.244 6.787 7.954 7.954 0 0 0 1.813 5.849 7.95 7.95 0 0 0 5.417 2.854 7.95 7.95 0 0 0 8.266-5.243 8.01 8.01 0 0 1-2.729.476 7.946 7.946 0 0 1-4.755-1.565C9.174 11.443 8.145 7.68 9.315 4.438z"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </label>
+                <!-- <span class="ml-2 text-sm font-semibold text-slate-500">Dark</span> -->
+              </div>
+            </li>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- HEADER TOP END -->
+
+    <!-- NAVBAR BOTTOM START -->
+    <!-- <section id="bottom-navigation" class="md:hidden block fixed inset-x-0 bottom-0 z-10 bg-white shadow"> // if shown only tablet/mobile-->
+    <section id="bottom-navigation" class="fixed inset-x-0 bottom-0 z-[9999] block bg-white bg-opacity-70 shadow-lg dark:bg-dark dark:bg-opacity-90 lg:md:hidden">
+      <div id="tabs" class="flex justify-between">
+        <a href="/" class="inline-block w-full justify-center pt-2 pb-1 text-center text-base font-bold text-dark transition duration-200 ease-in-out hover:text-primary dark:text-white dark:hover:text-primary">
+          <?xml version="1.0" ?><!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+          <svg width="25" height="25" class="mb-1 inline-block fill-current" id="Layer_1" style="enable-background: new 0 0 24 24" version="1.1" viewBox="0 0 16 16" width="16px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <path d="M15.45,7L14,5.551V2c0-0.55-0.45-1-1-1h-1c-0.55,0-1,0.45-1,1v0.553L9,0.555C8.727,0.297,8.477,0,8,0S7.273,0.297,7,0.555  L0.55,7C0.238,7.325,0,7.562,0,8c0,0.563,0.432,1,1,1h1v6c0,0.55,0.45,1,1,1h3v-5c0-0.55,0.45-1,1-1h2c0.55,0,1,0.45,1,1v5h3  c0.55,0,1-0.45,1-1V9h1c0.568,0,1-0.437,1-1C16,7.562,15.762,7.325,15.45,7z" />
+          </svg>
+          <span class="tab tab-home block text-xs">Home</span>
+        </a>
+        <a href="/project.html" class="inline-block w-full justify-center pt-2 pb-1 text-center text-base font-bold text-dark transition duration-200 ease-in-out hover:text-primary dark:text-white dark:hover:text-primary">
+          <?xml version="1.0" ?><svg width="25" height="25" class="mb-1 inline-block fill-current" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M384 121.941V128H256V0h6.059c6.365 0 12.47 2.529 16.971 7.029l97.941 97.941A24.005 24.005 0 0 1 384 121.941zM248 160c-13.2 0-24-10.8-24-24V0H24C10.745 0 0 10.745 0 24v464c0 13.255 10.745 24 24 24h336c13.255 0 24-10.745 24-24V160H248zM123.206 400.505a5.4 5.4 0 0 1-7.633.246l-64.866-60.812a5.4 5.4 0 0 1 0-7.879l64.866-60.812a5.4 5.4 0 0 1 7.633.246l19.579 20.885a5.4 5.4 0 0 1-.372 7.747L101.65 336l40.763 35.874a5.4 5.4 0 0 1 .372 7.747l-19.579 20.884zm51.295 50.479l-27.453-7.97a5.402 5.402 0 0 1-3.681-6.692l61.44-211.626a5.402 5.402 0 0 1 6.692-3.681l27.452 7.97a5.4 5.4 0 0 1 3.68 6.692l-61.44 211.626a5.397 5.397 0 0 1-6.69 3.681zm160.792-111.045l-64.866 60.812a5.4 5.4 0 0 1-7.633-.246l-19.58-20.885a5.4 5.4 0 0 1 .372-7.747L284.35 336l-40.763-35.874a5.4 5.4 0 0 1-.372-7.747l19.58-20.885a5.4 5.4 0 0 1 7.633-.246l64.866 60.812a5.4 5.4 0 0 1-.001 7.879z" />
+          </svg>
+          <span class="tab tab-explore block text-xs">Project</span>
+        </a>
+        <a href="/articles.html" class="inline-block w-full justify-center pt-2 pb-1 text-center text-base font-bold text-dark transition duration-200 ease-in-out visited:text-primary hover:text-primary dark:text-white dark:visited:text-primary dark:hover:text-primary">
+          <?xml version="1.0" ?><svg width="25" height="25" class="mb-1 inline-block fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <g id="Glyph"><path d="M9,21.62l.33-2.57a5,5,0,0,1,1.43-2.9l5.68-5.69A5,5,0,0,1,19,9.13V6a5,5,0,0,0-5-5H6A5,5,0,0,0,1,6V18a5,5,0,0,0,5,5H9.18A2.94,2.94,0,0,1,9,21.62ZM5,7h8a1,1,0,0,1,0,2H5A1,1,0,0,1,5,7Zm0,4h6a1,1,0,0,1,0,2H5a1,1,0,0,1,0-2Zm2,6H5a1,1,0,0,1,0-2H7a1,1,0,0,1,0,2Zm15.12-.88-5.69,5.69a2.93,2.93,0,0,1-1.74.85L12.13,23H12a1,1,0,0,1-1-1.13l.33-2.56a2.93,2.93,0,0,1,.85-1.74l5.69-5.69a3.08,3.08,0,0,1,4.24,0A3,3,0,0,1,22.12,16.12Z" /></g>
+          </svg>
+          <span class="tab tab-whishlist block text-xs">Articles</span>
+        </a>
+        <a href="/about.html" class="inline-block w-full justify-center pt-2 pb-1 text-center text-base font-bold text-dark transition duration-200 ease-in-out hover:text-primary dark:text-white dark:hover:text-primary">
+          <?xml version="1.0" ?><svg style="enable-background: new 0 0 24 24" version="1.1" width="25" height="25" class="mb-1 inline-block fill-current" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g id="info" />
+            <g id="icons">
+              <g id="user">
+                <ellipse cx="12" cy="8" rx="5" ry="6" />
+                <path d="M21.8,19.1c-0.9-1.8-2.6-3.3-4.8-4.2c-0.6-0.2-1.3-0.2-1.8,0.1c-1,0.6-2,0.9-3.2,0.9s-2.2-0.3-3.2-0.9    C8.3,14.8,7.6,14.7,7,15c-2.2,0.9-3.9,2.4-4.8,4.2C1.5,20.5,2.6,22,4.1,22h15.8C21.4,22,22.5,20.5,21.8,19.1z" />
+              </g>
+            </g>
+          </svg>
+          <span class="tab tab-kategori block text-xs">About Me</span>
+        </a>
+      </div>
+    </section>
+    <!-- NAVBAR BOTTOM START -->
+
+    <!-- BLOG SECTION START -->
+    <section id="article" class="bg-slate-100 pt-36 pb-32 dark:bg-dark">
+      <div class="container">
+        <div class="w-full px-4">
+          <div class="mx-auto mb-16 max-w-xl text-center">
+            <h4 class="mb-2 text-lg font-semibold text-primary">Article</h4>
+            <h2 class="mb-4 text-3xl font-bold text-dark dark:text-white sm:text-4xl lg:text-5xl">Recent posts</h2>
+            <p class="text-md font-medium text-secondary md:text-lg">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore quae ducimus aperiam eius.</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap">
+          <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
+            <div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg dark:bg-slate-800">
+              <img src="https://source.unsplash.com/360x200?programming" alt="Programming" class="w-full" />
+              <div class="py-8 px-6">
+                <h3>
+                  <a href="#" class="mb-3 block truncate text-xl font-semibold text-dark transition duration-300 ease-in-out hover:text-primary dark:text-white dark:hover:text-primary">Learn Programming Tips</a>
+                </h3>
+                <p class="mb-6 text-base font-medium text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui, provident!</p>
+                <a href="#" class="rounded-lg bg-primary py-2 px-4 text-sm font-medium text-white transition duration-300 ease-in-out hover:opacity-80">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
+            <div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg dark:bg-slate-800">
+              <img src="https://source.unsplash.com/360x200?lifestyle" alt="Lifestyle" class="w-full" />
+              <div class="py-8 px-6">
+                <h3>
+                  <a href="#" class="mb-3 block truncate text-xl font-semibold text-dark transition duration-300 ease-in-out hover:text-primary dark:text-white dark:hover:text-primary">Lifestyle</a>
+                </h3>
+                <p class="mb-6 text-base font-medium text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui, provident!</p>
+                <a href="#" class="rounded-lg bg-primary py-2 px-4 text-sm font-medium text-white transition duration-300 ease-in-out hover:opacity-80">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
+            <div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg dark:bg-slate-800">
+              <img src="https://source.unsplash.com/360x200?coffee" alt="Coffee" class="w-full" />
+              <div class="py-8 px-6">
+                <h3>
+                  <a href="#" class="mb-3 block truncate text-xl font-semibold text-dark transition duration-300 ease-in-out hover:text-primary dark:text-white dark:hover:text-primary">Enjoying a Cup of Coffee</a>
+                </h3>
+                <p class="mb-6 text-base font-medium text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui, provident!</p>
+                <a href="#" class="rounded-lg bg-primary py-2 px-4 text-sm font-medium text-white transition duration-300 ease-in-out hover:opacity-80">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
+            <div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg dark:bg-slate-800">
+              <img src="https://source.unsplash.com/360x200?internet+cafe" alt="Internet Cafe" class="w-full" />
+              <div class="py-8 px-6">
+                <h3>
+                  <a href="#" class="mb-3 block truncate text-xl font-semibold text-dark transition duration-300 ease-in-out hover:text-primary dark:text-white dark:hover:text-primary">Internet Cafe</a>
+                </h3>
+                <p class="mb-6 text-base font-medium text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui, provident!</p>
+                <a href="#" class="rounded-lg bg-primary py-2 px-4 text-sm font-medium text-white transition duration-300 ease-in-out hover:opacity-80">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
+            <div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg dark:bg-slate-800">
+              <img src="https://source.unsplash.com/360x200?library" alt="Library" class="w-full" />
+              <div class="py-8 px-6">
+                <h3>
+                  <a href="#" class="mb-3 block truncate text-xl font-semibold text-dark transition duration-300 ease-in-out hover:text-primary dark:text-white dark:hover:text-primary">Library</a>
+                </h3>
+                <p class="mb-6 text-base font-medium text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui, provident!</p>
+                <a href="#" class="rounded-lg bg-primary py-2 px-4 text-sm font-medium text-white transition duration-300 ease-in-out hover:opacity-80">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
+            <div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg dark:bg-slate-800">
+              <img src="https://source.unsplash.com/360x200?game" alt="Game" class="w-full" />
+              <div class="py-8 px-6">
+                <h3>
+                  <a href="#" class="mb-3 block truncate text-xl font-semibold text-dark transition duration-300 ease-in-out hover:text-primary dark:text-white dark:hover:text-primary">Game</a>
+                </h3>
+                <p class="mb-6 text-base font-medium text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui, provident!</p>
+                <a href="#" class="rounded-lg bg-primary py-2 px-4 text-sm font-medium text-white transition duration-300 ease-in-out hover:opacity-80">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
+            <div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg dark:bg-slate-800">
+              <img src="https://source.unsplash.com/360x200?just+do+it" alt="Just Do It" class="w-full" />
+              <div class="py-8 px-6">
+                <h3>
+                  <a href="#" class="mb-3 block truncate text-xl font-semibold text-dark transition duration-300 ease-in-out hover:text-primary dark:text-white dark:hover:text-primary">Just Do It</a>
+                </h3>
+                <p class="mb-6 text-base font-medium text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui, provident!</p>
+                <a href="#" class="rounded-lg bg-primary py-2 px-4 text-sm font-medium text-white transition duration-300 ease-in-out hover:opacity-80">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
+            <div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg dark:bg-slate-800">
+              <img src="https://source.unsplash.com/360x200?thinking" alt="Thinking" class="w-full" />
+              <div class="py-8 px-6">
+                <h3>
+                  <a href="#" class="mb-3 block truncate text-xl font-semibold text-dark transition duration-300 ease-in-out hover:text-primary dark:text-white dark:hover:text-primary">Thinking first before Speak</a>
+                </h3>
+                <p class="mb-6 text-base font-medium text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui, provident!</p>
+                <a href="#" class="rounded-lg bg-primary py-2 px-4 text-sm font-medium text-white transition duration-300 ease-in-out hover:opacity-80">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
+            <div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg dark:bg-slate-800">
+              <img src="https://source.unsplash.com/360x200?life" alt="Life" class="w-full" />
+              <div class="py-8 px-6">
+                <h3>
+                  <a href="#" class="mb-3 block truncate text-xl font-semibold text-dark transition duration-300 ease-in-out hover:text-primary dark:text-white dark:hover:text-primary">Meaning of life</a>
+                </h3>
+                <p class="mb-6 text-base font-medium text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui, provident!</p>
+                <a href="#" class="rounded-lg bg-primary py-2 px-4 text-sm font-medium text-white transition duration-300 ease-in-out hover:opacity-80">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- BLOG SECTION END -->
+
+    <!-- FOOTER SECTION START -->
+    <footer class="bg-dark pt-24 pb-12">
+      <div class="container">
+        <div class="flex flex-wrap">
+          <div class="mb-12 w-full px-4 md:w-1/3"></div>
+          <div class="mb-12 w-full px-4 md:w-1/3"></div>
+          <div class="mb-12 w-full px-4 md:w-1/3"></div>
+        </div>
+        <div class="w-full border-t border-slate-700 pt-10">
+          <!-- SOCIAL MEDIA START-->
+
+          <!-- SOCIAL MEDIA END-->
+          <p class="text-center text-sm font-medium text-slate-500">
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            | Made with <span class="text-red-600">❤️</span> by <a href="#" target="_blank" class="font-bold text-primary">Nehemia Gueldi</a>, use <a href="https://tailwindcss.com/" target="_blank" class="font-bold text-sky-500">Tailwind CSS</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!-- FOOTER SECTION END -->
+
+    <!-- BACK TO TOP START -->
+    <a href="#home" class="fixed right-4 bottom-24 z-[9999] hidden h-11 w-11 items-center justify-center rounded-full bg-primary p-4 hover:animate-pulse lg:md:h-14 lg:md:w-14 lg:md:bottom-4" id="to-top">
+      <span class="mt-1 block h-3 w-3 rotate-45 border-t-4 border-l-4 lg:md:mt-2 lg:md:h-5 lg:md:w-5"></span>
+    </a>
+    <!-- BACK TO TOP END -->
+
+    <!-- SCRIPTS START -->
+    <script src="dist/js/script.js"></script>
+    <!-- SCRIPTS END -->
+  </body>
+</html>
