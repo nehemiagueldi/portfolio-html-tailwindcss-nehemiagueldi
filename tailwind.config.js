@@ -12,6 +12,11 @@ module.exports = {
         primary: "#14b8a6",
         secondary: "#64748b",
         neutral: "#f3f4f6",
+        vercel: "#0284c7",
+        netlify: "#2563eb",
+        github: "#57534e",
+        coffee: "#d97706",
+        kofi: "#db2777",
         dark: "#0f172a",
       },
       screens: {
