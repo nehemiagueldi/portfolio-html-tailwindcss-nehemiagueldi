@@ -43,6 +43,10 @@ Run the CLI tool to scan your template files for classes and build your CSS.
 
 [![netlify](https://img.shields.io/badge/netlify-059669?style=for-the-badge&logo=netlify&logoColor=white)](https://app.netlify.com/start/deploy?repository=https://github.com/nehemiagueldi/portfolio-html-tailwindcss-nehemiagueldi)
 
+- **Clone this repository**
+  
+[![clone](https://img.shields.io/badge/Clone_Repository-1d4ed8?style=for-the-badge&logo=renovatebot&logoColor=white)](https://github.com/nehemiagueldi/portfolio-html-tailwindcss-nehemiagueldi/generate)
+
 ## 📚 References
 
 [**TailwindCSS**](https://tailwindcss.com/)
