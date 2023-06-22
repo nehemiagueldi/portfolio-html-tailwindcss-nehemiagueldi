@@ -43,6 +43,10 @@ Run the CLI tool to scan your template files for classes and build your CSS.
 
 [![netlify](https://img.shields.io/badge/netlify-059669?style=for-the-badge&logo=netlify&logoColor=white)](https://app.netlify.com/start/deploy?repository=https://github.com/nehemiagueldi/portfolio-html-tailwindcss-nehemiagueldi)
 
+- **Clone this repository**
+  
+[![clone](https://img.shields.io/badge/Clone_Repository-1d4ed8?style=for-the-badge&logo=renovatebot&logoColor=white)](https://github.com/nehemiagueldi/portfolio-html-tailwindcss-nehemiagueldi/generate)
+
 ## 📚 References
 
 [**TailwindCSS**](https://tailwindcss.com/)
@@ -50,17 +54,11 @@ Run the CLI tool to scan your template files for classes and build your CSS.
 
 ## ☕ Buy me a coffee
 
-[![ko-fi](https://img.shields.io/badge/ko-fi-db2777?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/nehemiagueldi)
-
-[![sociabuzz](https://img.shields.io/badge/sociabuzz-16a34a?style=for-the-badge&logo=StackBlitz&logoColor=white)](https://sociabuzz.com/nehemiagueldi/donate)
+[![ko-fi](https://img.shields.io/badge/ko-fi-db2777?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/nehemiagueldi) [![sociabuzz](https://img.shields.io/badge/sociabuzz-16a34a?style=for-the-badge&logo=StackBlitz&logoColor=white)](https://sociabuzz.com/nehemiagueldi/donate)
 
 
 ## 🔗 Links
 
-[![github](https://img.shields.io/badge/github-1DA1F2?style=for-the-badge&logo=github&logoColor=white)](https://github.com/nehemiagueldi)
-
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/nehemiagueldi/)
-
-[![portfolio](https://img.shields.io/badge/my_portfolio-0d9488?style=for-the-badge&logo=square&logoColor=white)](https://nehemiagueldi.github.io/) 
+[![github](https://img.shields.io/badge/github-1DA1F2?style=for-the-badge&logo=github&logoColor=white)](https://github.com/nehemiagueldi) [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/nehemiagueldi/) [![portfolio](https://img.shields.io/badge/my_portfolio-0d9488?style=for-the-badge&logo=square&logoColor=white)](https://nehemiagueldi.github.io/) 
 
 
